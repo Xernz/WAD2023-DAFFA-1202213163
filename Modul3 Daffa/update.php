@@ -7,10 +7,10 @@ include("connect.php");
 // (2) Tangkap nilai "id" mobil (CLUE: gunakan GET)
 $id = $_GET['id'];
     // (3) Buatkan fungsi "update" yang menerima data sebagai parameter
-function dataUpdate($nama_mobil, $brand_mobil, $warna_mobil, $tipe_mobil){
+function dataUpdate($nama_mobil, $brand_mobil, $warna_mobil, $tipe_mobil, $harga_mobil){
     global $connect;
     global $id;
-    $sql_update="UPDATE showroom_mobil SET nama_mobil='$nama_mobil', brand_mobil='$brand_mobil', warna_mobil='$warna_mobil', tipe_mobil='$warna_mobil' WHERE id = '$id'";
+    $sql_update="UPDATE showroom_mobil SET nama_mobil='$nama_mobil', brand_mobil='$brand_mobil', warna_mobil='$warna_mobil', tipe_mobil='$warna_mobil', harga_mobil='$harga_mobil' WHERE id = '$id'";
     if (mysqli_query($connect, $sql_update)) {
         echo "Data berhasil di update";
         } else {
@@ -27,8 +27,7 @@ function dataUpdate($nama_mobil, $brand_mobil, $warna_mobil, $tipe_mobil){
         // Jika terdapat kesalahan, buatkan eksekusi query gagalnya
 
     // Panggil fungsi update dengan data yang sesuai
-dataUpdate($_POST['nama_mobil'], $_POST['brand_mobil'], $_POST['warna_mobil'], $_POST['tipe_mobil']);
+dataUpdate($_POST['nama_mobil'], $_POST['brand_mobil'], $_POST['warna_mobil'], $_POST['tipe_mobil'], $_POST['harga_mobil']);
 mysqli_close($connect);
 // Tutup koneksi ke database setelah selesai menggunakan database
-
 ?>
